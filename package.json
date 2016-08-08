@@ -15,5 +15,10 @@
     "express": "^4.14.0",
     "superagent": "^2.1.0",
     "utility": "^1.8.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.4",
+    "mocha": "^3.0.1",
+    "should": "^10.0.0"
   }
 }
