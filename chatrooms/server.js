@@ -2,7 +2,25 @@ var http = require('http');
 var fs = require('fs');
 var path = require('path');
 var mime = require('mime');
+var chatServer = require('./lib/chat_server');
 var cache = {};
+
+var server = http.createServer(function(req, res) {
+  var filePath = false;
+
+  if(req.url == '/') {
+    filePath = 'public/index.html';
+  } else {
+    filePath = 'public' + req.url;
+  }
+
+  var absPath = './' + filePath;
+  serveStatic(res, cache, absPath);
+});
+
+server.listen(3000, function () {
+  console.log('Server listening on port 3000');
+});
 
 
 function send404(res) {
